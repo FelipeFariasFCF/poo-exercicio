@@ -100,11 +100,17 @@ public class Veiculo {
 	}
 
 	public void acelerar() {
-		velocidade += 20;
+		if(isLigado == false) {
+			System.out.println("Impossivel, veiculo esta desligado");
+		} else {
+			velocidade += 20;
+		}
 	}
 
 	public void abastecer(int combustivel) {
-		if ((litrosCombustivel + combustivel) > CAPACIDADE_TANQUE) {
+		if(isLigado == true) {
+			System.out.println("Para abastecer desligue o veiculo");
+		} else if ((litrosCombustivel + combustivel) > CAPACIDADE_TANQUE) {
 			int capacidadeDisponivel = (CAPACIDADE_TANQUE - litrosCombustivel);
 			System.out.println("Nivel de combustivel acima do limite!");
 			System.out.println("Capacidade maxima = 60L");
@@ -140,6 +146,7 @@ public class Veiculo {
 			System.out.println("O veiculo ja esta ligado");
 		} else {
 			System.out.println("Veiculo ligado!");
+			isLigado = true;
 		}
 	}
 
@@ -150,6 +157,16 @@ public class Veiculo {
 			System.out.println("Veiculo em movimento, impossivel desligar");
 		} else {
 			System.out.println("Veiculo desligado");
+			isLigado = false;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Veiculo marca=" + marca + ", modelo=" + modelo
+				+ ", placa=" + placa + ", cor=" + cor + ", km=" + km + ", isLigado=" + isLigado + ", litrosCombustivel="
+				+ litrosCombustivel + ", velocidade=" + velocidade + ", preco=" + preco + "]";
+	}
+	
+	
 }

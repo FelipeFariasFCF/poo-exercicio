@@ -1,0 +1,170 @@
+package model;
+
+public class Veiculo {
+
+	private final int CAPACIDADE_TANQUE = 60;
+	private String marca;
+	private String modelo;
+	private String placa;
+	private String cor;
+	private Float km;
+	private Boolean isLigado;
+	private Integer litrosCombustivel;
+	private Integer velocidade;
+	private Double preco;
+
+	public Veiculo(String marca, String modelo, String placa, String cor, Float km, Boolean isLigado,
+			Integer litrosCombustivel, Integer velocidade, Double preco) {
+		super();
+		this.marca = marca;
+		this.modelo = modelo;
+		this.placa = placa;
+		this.cor = cor;
+		this.km = km;
+		this.isLigado = isLigado;
+		this.litrosCombustivel = litrosCombustivel;
+		this.velocidade = velocidade;
+		this.preco = preco;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
+	public String getCor() {
+		return cor;
+	}
+
+	public void setCor(String cor) {
+		this.cor = cor;
+	}
+
+	public Float getKm() {
+		return km;
+	}
+
+	public void setKm(Float km) {
+		this.km = km;
+	}
+
+	public Boolean getIsLigado() {
+		return isLigado;
+	}
+
+	public void setIsLigado(Boolean isLigado) {
+		this.isLigado = isLigado;
+	}
+
+	public Integer getLitrosCombustivel() {
+		return litrosCombustivel;
+	}
+
+	public void setLitrosCombustivel(Integer litrosCombustivel) {
+		this.litrosCombustivel = litrosCombustivel;
+	}
+
+	public Integer getVelocidade() {
+		return velocidade;
+	}
+
+	public void setVelocidade(Integer velocidade) {
+		this.velocidade = velocidade;
+	}
+
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
+	public void acelerar() {
+		if(isLigado == false) {
+			System.out.println("Impossivel, veiculo esta desligado");
+		} else {
+			velocidade += 20;
+		}
+	}
+
+	public void abastecer(int combustivel) {
+		if ((litrosCombustivel + combustivel) > CAPACIDADE_TANQUE) {
+			int capacidadeDisponivel = (CAPACIDADE_TANQUE - litrosCombustivel);
+			System.out.println("Nivel de combustivel acima do limite!");
+			System.out.println("Capacidade maxima = 60L");
+			System.out.println("Quantidade no tanque de combustivel = " + litrosCombustivel + "L");
+			System.out.println("Disponivel para abastecer = " + capacidadeDisponivel + "L");
+			System.out.println("Quantidade solicitada = " + combustivel + "L");
+		} else {
+			litrosCombustivel += combustivel;
+			System.out.println("Veiculo abastecido com = " + combustivel + "L");
+			System.out.println("Quantidade no tanque de combustivel = " + litrosCombustivel + "L");
+		}
+	}
+
+	public void frear() {
+		if (velocidade == 0) {
+			System.out.println("O veiculo esta parado, nao e possivel frear");
+		} else if(velocidade >= 20){
+			velocidade -= 20;
+			System.out.println("Velocidade apos frear = " + velocidade);
+		} else if(velocidade > 0 && velocidade < 20){
+			velocidade = 0;
+			System.out.println("Velocidade apos frear = " + velocidade);
+		}
+	}
+
+	public void pintar(String cor) {
+		this.cor = cor;
+		System.out.println("Nova cor " + cor);
+	}
+
+	public void ligar() {
+		if (isLigado == true) {
+			System.out.println("O veiculo ja esta ligado");
+		} else {
+			System.out.println("Veiculo ligado!");
+			isLigado = true;
+		}
+	}
+
+	public void desligar() {
+		if (isLigado == false) {
+			System.out.println("Impossivel desligar (veiculo ja esta desligado)");
+		} else if (velocidade > 0) {
+			System.out.println("Veiculo em movimento, impossivel desligar");
+		} else {
+			System.out.println("Veiculo desligado");
+			isLigado = false;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Veiculo marca=" + marca + ", modelo=" + modelo
+				+ ", placa=" + placa + ", cor=" + cor + ", km=" + km + ", isLigado=" + isLigado + ", litrosCombustivel="
+				+ litrosCombustivel + ", velocidade=" + velocidade + ", preco=" + preco + "]";
+	}
+	
+	
+}

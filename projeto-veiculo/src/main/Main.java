@@ -7,42 +7,59 @@ import model.Veiculo;
 public class Main {
 
 	public static void main(String[] args) {
-	
+
 		Scanner sc = new Scanner(System.in);
-		
+
 		Veiculo celta = new Veiculo("Chevrolet", "Celta", "POP-1234", "PRETO", 15000f, false, 20, 0, 15000.00);
 		
-		// teste 1 - ligar veiculo
-		//celta.setIsLigado(false);
-		//celta.setIsLigado(true);
-		celta.ligar();
-		
-		// teste 2 - desligar veiculo
-		//celta.setIsLigado(true);
-		//celta.setIsLigado(false);
-		//celta.setVelocidade(10);
-		celta.desligar();
-		
-		// teste 3 - pintar veiculo
-		//System.out.println(celta.getCor());
-		//celta.pintar("BRANCO");
-		
-		// teste 4 - abastecer
-		//celta.abastecer(50);
-		celta.abastecer(10);
-		
-		// teste 5 - acelerar
-		//System.out.println(celta.getVelocidade());
-		celta.acelerar();
-		//System.out.println(celta.getVelocidade());
-		
-		// teste 6 - frear
-		//System.out.println(celta.getVelocidade());
-		//celta.frear();
-		//celta.setVelocidade(180);
-		//System.out.println("Velocidade atual = " + celta.getVelocidade());
-		celta.frear();
-	
+		// nao me orgulho disso
+		int n = 10;
+		do {
+			System.out.println(celta);
+			System.out.println("1 - ligar | 2 - desligar | 3 - pintar | 4 - abastecer | 5 - acelerar | 6 - frear | 0 - para finalizar");
+			System.out.print("Digite a opcao que deseja: ");
+			n = sc.nextInt();
+			System.out.println();
+			switch (n) {
+			
+				case 0:
+					System.out.println("Encerrado");
+					break;
+				
+				case 1:
+					celta.ligar();
+				break;
+				
+				case 2:
+					celta.desligar();
+				break;
+				
+				case 3:
+					System.out.print("Qual cor deseja pintar ? ");
+					String cor = sc.next();
+					celta.pintar(cor);
+				break;
+				
+				case 4:
+					System.out.print("Quantos litros deseja abastecer ? ");
+					int litros = sc.nextInt();
+					celta.abastecer(litros);
+				break;
+				
+				case 5:
+					celta.acelerar();
+				break;
+				
+				case 6: 
+					celta.frear();
+				break;
+				
+				default:
+					System.out.println("Opcao invalida");
+				break;
+			}
+		} while (n != 0);
+
 		sc.close();
 	}
 }
