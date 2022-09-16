@@ -1,0 +1,15 @@
+package model;
+
+public abstract class Personagem {
+
+	private String nome;
+	private Integer vida;
+	private Integer mana;
+	private Float xp;
+	private Integer inteligencia;
+	private Integer forca;
+	private Integer level;
+	
+	
+	
+}

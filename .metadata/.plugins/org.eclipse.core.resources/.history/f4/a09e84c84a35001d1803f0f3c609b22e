@@ -1,0 +1,20 @@
+package main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import model.Guerreiro;
+import model.Mago;
+import model.Personagem;
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		List<Personagem> lista = new ArrayList<>();
+		
+		lista.add(new Mago("Gandalf", 100, 100, 100f, 100, 100, 1, "Fogo"));
+		lista.add(new Guerreiro("Aragorn", 100, 100, 100f, 100, 100, 1, "Golpe pesado forte"));
+
+	}
+}

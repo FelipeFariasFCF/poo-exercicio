@@ -1,0 +1,32 @@
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class Mago extends Personagem {
+
+	private List<String> magia = new ArrayList<>();
+
+	public Mago() {
+		super();
+	}
+
+	public List<String> getMagia() {
+		return magia;
+	}
+
+	public void setMagia(String magia) {
+		this.magia.add(magia);
+	}
+	
+	public void attack() {
+		Random random = new Random(300);
+	}
+
+	@Override
+	public void lvlUp() {
+		setMana(getMana() + 10);
+		setInteligencia(getInteligencia() + 10);
+	}
+}

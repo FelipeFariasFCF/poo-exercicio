@@ -1,0 +1,15 @@
+package main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import model.Personagem;
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		List<Personagem> lista = new ArrayList<>();
+
+	}
+}

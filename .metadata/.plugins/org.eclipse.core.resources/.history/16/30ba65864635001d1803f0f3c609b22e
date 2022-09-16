@@ -1,0 +1,30 @@
+package model;
+
+public abstract class Personagem {
+
+	private String nome;
+	private Integer vida;
+	private Integer mana;
+	private Float xp;
+	private Integer inteligencia;
+	private Integer forca;
+	private Integer level;
+	
+	public Personagem() {
+	}
+
+	public Personagem(String nome, Integer vida, Integer mana, Float xp, Integer inteligencia, Integer forca,
+			Integer level) {
+		super();
+		this.nome = nome;
+		this.vida = vida;
+		this.mana = mana;
+		this.xp = xp;
+		this.inteligencia = inteligencia;
+		this.forca = forca;
+		this.level = level;
+	}
+	
+	
+	
+}
