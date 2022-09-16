@@ -2,7 +2,6 @@ package model;
 
 public class Veiculo {
 
-	private final int CAPACIDADE_TANQUE = 60;
 	private String marca;
 	private String modelo;
 	private String placa;
@@ -104,8 +103,8 @@ public class Veiculo {
 	}
 
 	public void abastecer(int combustivel) {
-		if ((litrosCombustivel + combustivel) > CAPACIDADE_TANQUE) {
-			int capacidadeDisponivel = (CAPACIDADE_TANQUE - litrosCombustivel);
+		if ((litrosCombustivel + combustivel) > 60) {
+			int capacidadeDisponivel = (60 - litrosCombustivel);
 			System.out.println("Nivel de combustivel acima do limite!");
 			System.out.println("Capacidade maxima = 60L");
 			System.out.println("Quantidade no tanque de combustivel = " + litrosCombustivel + "L");

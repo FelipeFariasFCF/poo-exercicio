@@ -2,7 +2,7 @@ package model;
 
 public class Veiculo {
 
-	private final int CAPACIDADE_TANQUE = 60;
+	private final static int CAPACIDADE_TANQUE = 60;
 	private String marca;
 	private String modelo;
 	private String placa;
